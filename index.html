@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Конвертер валют</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="converter-container">
+        <header class="converter-header">
+            <h1>💱 Конвертер валют</h1>
+            <p class="subtitle">Актуальные курсы от Open Exchange Rates</p>
+        </header>
+
+        <div class="currency-selector">
+            <label class="radio-card">
+                <input type="radio" name="currency" value="USD" checked>
+                <span class="radio-card__content">
+                    <span class="radio-card__flag">🇺🇸</span>
+                    <span class="radio-card__text">
+                        <span class="radio-card__name">Доллар (USD)</span>
+                        <span class="radio-card__label">США</span>
+                    </span>
+                </span>
+                <span class="radio-card__check"></span>
+            </label>
+
+            <label class="radio-card">
+                <input type="radio" name="currency" value="EUR">
+                <span class="radio-card__content">
+                    <span class="radio-card__flag">🇪🇺</span>
+                    <span class="radio-card__text">
+                        <span class="radio-card__name">Евро (EUR)</span>
+                        <span class="radio-card__label">Европа</span>
+                    </span>
+                </span>
+                <span class="radio-card__check"></span>
+            </label>
+        </div>
+
+        <div class="converter-body">
+            <div class="input-group">
+                <label for="amount" class="input-group__label">Сумма</label>
+                <div class="input-group__wrapper">
+                    <input 
+                        type="number" 
+                        id="amount" 
+                        class="input-group__input" 
+                        placeholder="Введите количество" 
+                        min="0" 
+                        step="any"
+                        value="1"
+                    >
+                    <span class="input-group__currency" id="displayCurrency">USD</span>
+                </div>
+            </div>
+
+            <div class="conversion-direction">
+                <button id="swapBtn" class="swap-btn" title="Поменять направление">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M7 16V4M7 4L3 8M7 4L11 8"/>
+                        <path d="M17 8v12M17 20l4-4M17 20l-4-4"/>
+                    </svg>
+                </button>
+            </div>
+
+            <div class="input-group">
+                <label for="result" class="input-group__label">Результат</label>
+                <div class="input-group__wrapper input-group__wrapper--result">
+                    <input 
+                        type="text" 
+                        id="result" 
+                        class="input-group__input" 
+                        readonly 
+                        placeholder="0.00"
+                    >
+                    <span class="input-group__currency">₽</span>
+                </div>
+            </div>
+
+            <div class="rate-info">
+                <span class="rate-info__label">Курс:</span>
+                <span class="rate-info__value" id="rateValue">1 USD = 92.50 ₽</span>
+            </div>
+
+            <div class="status-bar" id="statusBar">
+                <span class="status-bar__icon">⏳</span>
+                <span class="status-bar__text">Загрузка курсов...</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
